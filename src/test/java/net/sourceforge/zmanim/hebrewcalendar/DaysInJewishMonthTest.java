@@ -10,7 +10,7 @@ import org.junit.*;
  * Validate the days in a Hebrew month (in various types of years) are correct.
  */
 @SuppressWarnings({ "MagicNumber" })
-public class UT_DaysInJewishMonth {
+public class DaysInJewishMonthTest {
 
 	@Test
 	public void daysInMonthsInHaserYear() {
@@ -58,6 +58,12 @@ public class UT_DaysInJewishMonth {
 	}
 
 
+	private void assertHaser( JewishDate jd ) {
+
+		Assert.assertFalse( jd.isCheshvanLong() );
+		Assert.assertTrue( jd.isKislevShort() );
+	}
+
 	private void assertHaser(int year) {
 		JewishDate jewishDate = new JewishDate();
 		jewishDate.setJewishYear(year);
@@ -84,6 +90,12 @@ public class UT_DaysInJewishMonth {
 		Assert.assertFalse(jewishDate.isKislevShort(  ));
 	}
 
+	private void assertQesidrah( JewishDate jd ) {
+
+		Assert.assertFalse( jd.isCheshvanLong() );
+		Assert.assertFalse( jd.isKislevShort() );
+	}
+
 
 	private void assertQesidrahLeap(int year) {
 		JewishDate jewishDate = new JewishDate();
@@ -100,6 +112,11 @@ public class UT_DaysInJewishMonth {
 
 		Assert.assertTrue(jewishDate.isCheshvanLong(  ));
 		Assert.assertFalse(jewishDate.isKislevShort(  ));
+
+	private void assertShalem( JewishDate jd ) {
+
+		Assert.assertTrue( jd.isCheshvanLong() );
+		Assert.assertFalse( jd.isKislevShort() );
 	}
 
 
@@ -109,6 +126,11 @@ public class UT_DaysInJewishMonth {
 
 		assertShalem(year);
 		Assert.assertTrue(jewishDate.isJewishLeapYear(  ));
+		Assert.assertTrue( jd.isJewishLeapYear() );
 	}
 
-} // End of UT_DaysInJewishMonth class
+	private JewishDate getDateInJewishYear(int year) {
+		return new JewishDate(year, 1,1);
+	}
+
+} // End of DaysInJewishMonthTest class

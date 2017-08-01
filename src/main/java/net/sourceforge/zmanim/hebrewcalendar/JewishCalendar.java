@@ -956,4 +956,8 @@ public class JewishCalendar extends JewishDate {
 		result += 37 * result + getAbsDate() + (getInIsrael() ? 1 : 3);
 		return result;
 	}
+
+	public int getParshaIndex() {
+		return 0;
+	}
 }

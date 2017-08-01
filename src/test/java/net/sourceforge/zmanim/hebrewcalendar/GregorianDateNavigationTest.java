@@ -12,7 +12,7 @@ import java.util.Calendar;
  * Checks that we can roll forward & backward the gregorian dates...
  */
 @SuppressWarnings({ "MagicNumber" })
-public class UT_GregorianDateNavigation {
+public class GregorianDateNavigationTest {
 
 	@Test
 	public void gregorianForwardMonthToMonth() {
@@ -26,6 +26,7 @@ public class UT_GregorianDateNavigation {
 		Assert.assertEquals(5771, hebrewDate.getJewishYear());
 		Assert.assertEquals(11, hebrewDate.getJewishMonth());
 		Assert.assertEquals(26, hebrewDate.getJewishDayOfMonth());
+		Assert.assertEquals( 0, hebrewDate.getGregorianMonth() );
 
 		hebrewDate.forward();
 		Assert.assertEquals(2, hebrewDate.getGregorianMonth());
@@ -262,4 +263,4 @@ public class UT_GregorianDateNavigation {
 
 
 
-} // End of UT_GregorianDateNavigation class
+} // End of GregorianDateNavigationTest class

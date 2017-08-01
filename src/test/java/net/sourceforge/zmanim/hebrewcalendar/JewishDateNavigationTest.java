@@ -12,7 +12,7 @@ import java.util.Calendar;
  *
  */
 @SuppressWarnings({ "MagicNumber" })
-public class UT_JewishDateNavigation {
+public class JewishDateNavigationTest {
 
 
 	@Test
@@ -39,4 +39,4 @@ public class UT_JewishDateNavigation {
 	}
 
 
-} // End of UT_JewishDateNavigation class
+} // End of JewishDateNavigationTest class

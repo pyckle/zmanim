@@ -13,7 +13,7 @@ import java.util.Calendar;
  *  has 28 or 29 days...
  */
 @SuppressWarnings({ "MagicNumber" })
-public class UT_DaysInGregorianMonth {
+public class DaysInGregorianMonthTest {
 
 
 	@Test
@@ -93,4 +93,4 @@ public class UT_DaysInGregorianMonth {
 	}
 
 
-} // End of UT_DaysInGregorianMonth class
+} // End of DaysInGregorianMonthTest class

@@ -390,13 +390,10 @@ public class NOAACalculator extends AstronomicalCalculator {
 	 * horizontal coordinate system at the given location at the given time. Not corrected for altitude. True south is 0
 	 * degrees.
 	 * 
-	 * @param cal
-	 *            time of calculation
-	 * @param lat
-	 *            latitude of location for calculation
-	 * @param lon
-	 *            longitude of location for calculation
-	 * @return FIXME
+	 * @param cal time of calculation
+	 * @param lat latitude of location for calculation
+	 * @param lon longitude of location for calculation
+	 * @return the solar azimuth
 	 */
 
 	public static double getSolarAzimuth(Calendar cal, double lat, double lon) {

@@ -10,7 +10,7 @@ import org.junit.*;
  * Verify correct calculations of when a Hebrew leap year occurs.
  */
 @SuppressWarnings({ "MagicNumber" })
-public class UT_JewishLeapYear {
+public class JewishLeapYearTest {
 
 
 	@Test
@@ -63,4 +63,4 @@ public class UT_JewishLeapYear {
 		Assert.assertFalse(jewishDate.isJewishLeapYear(  ));
 	}
 
-} // End of UT_JewishLeapYear class
+} // End of JewishLeapYearTest class

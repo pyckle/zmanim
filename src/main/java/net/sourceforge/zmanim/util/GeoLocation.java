@@ -152,7 +152,10 @@ public class GeoLocation implements Cloneable {
 	 */
 	public void setLatitude(int degrees, int minutes, double seconds, String direction) {
 		double tempLat = degrees + ((minutes + (seconds / 60.0)) / 60.0);
-		if (tempLat > 90 || tempLat < 0) { //FIXME An exception should be thrown if degrees, minutes or seconds are negative
+
+		sanityCheckDMS(degrees, minutes, seconds);
+
+		if (tempLat > 90 || tempLat < 0) {
 			throw new IllegalArgumentException(
 					"Latitude must be between 0 and  90. Use direction of S instead of negative.");
 		}
@@ -162,6 +165,14 @@ public class GeoLocation implements Cloneable {
 			throw new IllegalArgumentException("Latitude direction must be N or S");
 		}
 		this.latitude = tempLat;
+	}
+
+	private void sanityCheckDMS(int degrees, int minutes, double seconds) {
+		if(degrees < 0) throw new IllegalArgumentException("Degrees: " + degrees + " must be >=0");
+		if(minutes < 0) throw new IllegalArgumentException("Minutes: " + minutes + " must be >=0");
+		if(minutes >= 60) throw new IllegalArgumentException("Minutes: " + minutes + " must be <60");
+		if(seconds < 0) throw new IllegalArgumentException("Seconds: " + seconds + " must be >=0");
+		if(seconds >= 60) throw new IllegalArgumentException("Seconds: " + seconds + " must be <60");
 	}
 
 	/**
@@ -205,7 +216,10 @@ public class GeoLocation implements Cloneable {
 	 */
 	public void setLongitude(int degrees, int minutes, double seconds, String direction) {
 		double longTemp = degrees + ((minutes + (seconds / 60.0)) / 60.0);
-		if (longTemp > 180 || this.longitude < 0) { //FIXME An exception should be thrown if degrees, minutes or seconds are negative
+
+		sanityCheckDMS(degrees, minutes, seconds);
+
+		if (longTemp > 180 || this.longitude < 0) {
 			throw new IllegalArgumentException("Longitude must be between 0 and  180.  Use a direction of W instead of negative.");
 		}
 		if (direction.equals("W")) {
@@ -593,6 +607,7 @@ public class GeoLocation implements Cloneable {
 			clone = (GeoLocation) super.clone();
 		} catch (CloneNotSupportedException cnse) {
 			//Required by the compiler. Should never be reached since we implement clone()
+			throw new RuntimeException(cnse);
 		}
 		clone.timeZone = (TimeZone) getTimeZone().clone();
 		clone.locationName = getLocationName();
