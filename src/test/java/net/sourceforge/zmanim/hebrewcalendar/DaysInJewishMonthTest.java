@@ -110,8 +110,9 @@ public class DaysInJewishMonthTest {
 		JewishDate jewishDate = new JewishDate();
 		jewishDate.setJewishYear(year);
 
-		Assert.assertTrue(jewishDate.isCheshvanLong(  ));
-		Assert.assertFalse(jewishDate.isKislevShort(  ));
+		Assert.assertTrue(jewishDate.isCheshvanLong());
+		Assert.assertFalse(jewishDate.isKislevShort());
+	}
 
 	private void assertShalem( JewishDate jd ) {
 
@@ -126,7 +127,6 @@ public class DaysInJewishMonthTest {
 
 		assertShalem(year);
 		Assert.assertTrue(jewishDate.isJewishLeapYear(  ));
-		Assert.assertTrue( jd.isJewishLeapYear() );
 	}
 
 	private JewishDate getDateInJewishYear(int year) {
